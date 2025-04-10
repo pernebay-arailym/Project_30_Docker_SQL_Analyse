@@ -1,4 +1,4 @@
-version: '3.8'
+
 
 services:
   sqlite-db:
@@ -12,7 +12,7 @@ services:
   script-run:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: script-runner/Dockerfile
     container_name: script-container
     depends_on:
       - sqlite-db
