@@ -6,6 +6,7 @@ services:
     container_name: sqlite-container
     volumes:
       - ./data:/data  # stockage local partagé
+    # command: ["sqlite3", "/data/sales_data.db"]
     stdin_open: true
     tty: true
 
