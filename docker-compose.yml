@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  sqlite-db:
+    image: nouchka/sqlite3
+    container_name: sqlite-container
+    volumes:
+      - ./data:/data  # stockage local partagé
+    stdin_open: true
+    tty: true
+
+  script-run:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: script-container
+    depends_on:
+      - sqlite-db
+    volumes:
+      - ./data:/data  # partage du fichier .sqlite
